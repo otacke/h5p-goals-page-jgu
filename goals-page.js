@@ -147,7 +147,8 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
       this.previousState.goals.forEach(function (goal, index) {
         self.addGoal({
           value: goal.text,
-          description: goal.goalTypeDescription
+          description: goal.goalTypeDescription,
+          weight: goal.weight
         });
         self.goalList[index].goalAnswer(goal.answer);
         self.goalList[index].setTextualAnswer(goal.textualAnswer);
@@ -182,9 +183,13 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
     const self = this;
 
     self.params.predefinedGoals.forEach((goal) => {
+      if (!goal.text) {
+        return;
+      }
       self.addGoal({
-        value: self.htmlDecode(goal),
-        description: self.htmlDecode(self.params.definedGoalLabel)
+        value: self.htmlDecode(goal.text),
+        description: self.htmlDecode(self.params.definedGoalLabel),
+        weight: goal.weight
       });
     });
   };
@@ -201,6 +206,7 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
     var goalPlaceholder = this.htmlDecode(self.params.defineGoalPlaceholder);
     var goalTypeDescription = this.htmlDecode(self.params.definedGoalLabel);
     let goalText = undefined;
+    const goalWeight = competenceAim?.weight ?? 100;
 
     // Use predefined goal
     if (competenceAim !== undefined) {
@@ -208,7 +214,9 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
       goalTypeDescription = competenceAim.description;
     }
 
-    var newGoal = new H5P.GoalsPageJGU.GoalInstance(goalPlaceholder, self.goalId, goalTypeDescription, goalText);
+    var newGoal = new H5P.GoalsPageJGU.GoalInstance(
+      goalPlaceholder, self.goalId, goalTypeDescription, goalText, goalWeight
+    );
     self.goalList.push(newGoal);
     self.goalId += 1;
 

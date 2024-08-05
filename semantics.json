@@ -34,8 +34,24 @@
     "optional": true,
     "field": {
       "name": "predefinedGoal",
-      "type": "text",
-      "label": "Predefined goal"
+      "type": "group",
+      "label": "Predefined goal",
+      "fields": [
+        {
+          "name": "text",
+          "type": "text",
+          "label": "Goal text"
+        },
+        {
+          "name": "weight",
+          "type": "number",
+          "label": "Relative score weight",
+          "description": "Each goal will be weighted with its relative score weight per total score weight of all goals.",
+          "min": 0,
+          "default": 100,
+          "optional": true
+        }
+      ]
     }
   },
   {

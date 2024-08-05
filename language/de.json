@@ -10,7 +10,16 @@
       "entity": "Ziel",
       "description": "Optionales, vordefiniertes Ziel, das die Nutzenden verwenden oder löschen können.",
       "field": {
-        "label": "Vordefiniertes Ziel"
+        "label": "Vordefiniertes Ziel",
+        "fields": [
+          {
+            "label": "Zieltext"
+          },
+          {
+            "label": "Relative Punktegewichtung",
+            "description": "Jedes Ziel wird mit seinem relativen Punktwert je Gesamtpunktwert aller Ziele gewichtet."
+          }
+        ]
       }
     },
     {

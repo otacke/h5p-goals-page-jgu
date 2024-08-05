@@ -10,7 +10,17 @@
       "entity": "goal",
       "description": "Optional predefined goals that the user can choose to use or delete.",
       "field": {
-        "label": "Predefined goal"
+
+        "label": "Predefined goal",
+        "fields": [
+          {
+            "label": "Goal text"
+          },
+          {
+            "label": "Relative score weight",
+            "description": "Each goal will be weighted with its relative score weight per total score weight of all goals."
+          }
+        ]
       }
     },
     {

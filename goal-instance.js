@@ -14,13 +14,14 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
    * @param {String} goalTypeDescription String describing the goal type, that will be displayed in its' footer
    * @returns {Object} GoalInstance GoalInstance instance
    */
-  function GoalInstance(defineGoalPlaceholder, uniqueId, goalTypeDescription, goalText) {
+  function GoalInstance(defineGoalPlaceholder, uniqueId, goalTypeDescription, goalText, goalWeight = 100) {
     this.uniqueId = uniqueId;
     this.answer = -1;
     this.textualAnswer = '';
     this.text = goalText;
     this.placeholder = defineGoalPlaceholder;
     this.goalTypeDescription = goalTypeDescription;
+    this.goalWeight = goalWeight;
   }
 
   /**
