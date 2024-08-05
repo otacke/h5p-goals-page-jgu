@@ -1,10 +1,10 @@
 var H5P = H5P || {};
-H5P.GoalsPage = H5P.GoalsPage || {};
+H5P.GoalsPageJGU = H5P.GoalsPageJGU || {};
 
 /**
  * Goal Instance module
  */
-H5P.GoalsPage.GoalInstance = (function () {
+H5P.GoalsPageJGU.GoalInstance = (function () {
 
   /**
    * Initialize module.

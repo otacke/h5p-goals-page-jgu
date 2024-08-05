@@ -4,7 +4,7 @@ var H5P = H5P || {};
  * Goals Page module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.GoalsPage = (function ($, EventDispatcher) {
+H5P.GoalsPageJGU = (function ($, EventDispatcher) {
   // CSS Classes:
   var MAIN_CONTAINER = 'h5p-goals-page';
 
@@ -33,9 +33,9 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * @param {Object} params Behavior settings
    * @param {Number} id Content identification
    * @param {object} [extras] Saved state, metadata, etc.
-   * @returns {Object} GoalsPage GoalsPage instance
+   * @returns {Object} GoalsPageJGU GoalsPageJGU instance
    */
-  function GoalsPage(params, id, extras) {
+  function GoalsPageJGU(params, id, extras) {
     EventDispatcher.call(this);
     this.id = id;
     this.extras = extras;
@@ -65,15 +65,15 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
     }
   }
 
-  GoalsPage.prototype = Object.create(EventDispatcher.prototype);
-  GoalsPage.prototype.constructor = GoalsPage;
+  GoalsPageJGU.prototype = Object.create(EventDispatcher.prototype);
+  GoalsPageJGU.prototype.constructor = GoalsPageJGU;
 
   /**
    * Attach function called by H5P framework to insert H5P content into page.
    *
    * @param {jQuery} $container The container which will be appended to.
    */
-  GoalsPage.prototype.attach = function ($container) {
+  GoalsPageJGU.prototype.attach = function ($container) {
     var self = this;
     this.$inner = $('<div>', {
       'class': MAIN_CONTAINER
@@ -160,11 +160,11 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
   /**
    * Create button for creating goals
    */
-  GoalsPage.prototype.initCreateGoalButton = function () {
+  GoalsPageJGU.prototype.initCreateGoalButton = function () {
     var self = this;
 
     // Create new goal on click
-    H5P.DocumentationTool.handleButtonClick(self.$createGoalButton, function () {
+    H5P.DocumentationToolJGU.handleButtonClick(self.$createGoalButton, function () {
       self.addGoal().find('.created-goal').focus();
       self.trigger('resize');
     });
@@ -175,7 +175,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * @param {Object} competenceAim Optional competence aim which the goal will constructed from
    * @return {jQuery} $newGoal New goal element
    */
-  GoalsPage.prototype.addGoal = function (competenceAim) {
+  GoalsPageJGU.prototype.addGoal = function (competenceAim) {
     var self = this;
     goalCounter++;
 
@@ -189,7 +189,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
       goalTypeDescription = competenceAim.description;
     }
 
-    var newGoal = new H5P.GoalsPage.GoalInstance(goalPlaceholder, self.goalId, goalTypeDescription, goalText);
+    var newGoal = new H5P.GoalsPageJGU.GoalInstance(goalPlaceholder, self.goalId, goalTypeDescription, goalText);
     self.goalList.push(newGoal);
     self.goalId += 1;
 
@@ -205,7 +205,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * Remove chosen goal from the page
    * @param {jQuery} $goalContainer
    */
-  GoalsPage.prototype.removeGoal = function ($goalContainer) {
+  GoalsPageJGU.prototype.removeGoal = function ($goalContainer) {
     var goalInstance = this.getGoalInstanceFromUniqueId($goalContainer.data('uniqueId'));
 
     if (this.goalList.indexOf(goalInstance) > -1) {
@@ -219,7 +219,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
   /**
    * Updates goal counter on page with amount of chosen goals.
    */
-  GoalsPage.prototype.updateGoalsCounter = function () {
+  GoalsPageJGU.prototype.updateGoalsCounter = function () {
     var self = this;
     var $goalCounterContainer = $('.goals-counter', self.$inner);
     $goalCounterContainer.children().remove();
@@ -235,9 +235,9 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
   /**
    * Returns the goal instance matching provided id
    * @param {Number} goalInstanceUniqueId Id matching unique id of target goal
-   * @returns {H5P.GoalsPage.GoalInstance|Number} Returns matching goal instance or -1 if not found
+   * @returns {H5P.GoalsPageJGU.GoalInstance|Number} Returns matching goal instance or -1 if not found
    */
-  GoalsPage.prototype.getGoalInstanceFromUniqueId = function (goalInstanceUniqueId) {
+  GoalsPageJGU.prototype.getGoalInstanceFromUniqueId = function (goalInstanceUniqueId) {
     var foundInstance = -1;
     this.goalList.forEach(function (goalInstance) {
       if (goalInstance.getUniqueId() === goalInstanceUniqueId) {
@@ -250,10 +250,10 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
 
   /**
    * Create a new goal container
-   * @param {H5P.GoalsPage.GoalInstance} goalInstance Goal instance object to create the goal from
+   * @param {H5P.GoalsPageJGU.GoalInstance} goalInstance Goal instance object to create the goal from
    * @returns {jQuery} New goal element
    */
-  GoalsPage.prototype.createNewGoal = function (goalInstance) {
+  GoalsPageJGU.prototype.createNewGoal = function (goalInstance) {
     var self = this;
 
     // Goal container
@@ -301,7 +301,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * @param {jQuery} $removeContainer Container that will be removed upon click
    * @returns {jQuery} $removeGoalButton The button
    */
-  GoalsPage.prototype.createRemoveGoalButton = function (text, textAreaId, $removeContainer) {
+  GoalsPageJGU.prototype.createRemoveGoalButton = function (text, textAreaId, $removeContainer) {
     var self = this;
     var $removeGoalButton = $('<button>', {
       'class': 'h5p-created-goal-remove h5p-goals-button',
@@ -333,7 +333,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * @param {boolean} turncatedTitle turncate title flag
    * @returns {String} Page title
    */
-  GoalsPage.prototype.getTitle = function (turncatedTitle = true) {
+  GoalsPageJGU.prototype.getTitle = function (turncatedTitle = true) {
     const pageTitle = (this.extras && this.extras.metadata && this.extras.metadata.title) ? this.extras.metadata.title : 'Goals';
     return turncatedTitle ? H5P.createTitle(pageTitle) : pageTitle;
   };
@@ -342,14 +342,14 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * Get goal list
    * @returns {Array} Goal list
    */
-  GoalsPage.prototype.getGoals = function () {
+  GoalsPageJGU.prototype.getGoals = function () {
     return this.goalList;
   };
 
   /**
    * Sets focus on page
    */
-  GoalsPage.prototype.focus = function () {
+  GoalsPageJGU.prototype.focus = function () {
     this.$pageTitle.focus();
   };
 
@@ -359,7 +359,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    *
    * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
    */
-  GoalsPage.prototype.getXAPIData = function () {
+  GoalsPageJGU.prototype.getXAPIData = function () {
     var XAPIEvent = this.createXAPIEventTemplate('answered');
     this.addQuestionToxAPI(XAPIEvent);
     this.addResponseToxAPI(XAPIEvent);
@@ -371,7 +371,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
   /**
     * Trigger xAPI answered event
     */
-  GoalsPage.prototype.triggerAnswered = function () {
+  GoalsPageJGU.prototype.triggerAnswered = function () {
     var xAPIEvent = this.createXAPIEventTemplate('answered');
     this.addQuestionToXAPI(xAPIEvent);
     this.addResponseToXAPI(xAPIEvent);
@@ -381,7 +381,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
   /**
    * Add the question itself to the definition part of an xAPIEvent
    */
-  GoalsPage.prototype.addQuestionToxAPI = function (xAPIEvent) {
+  GoalsPageJGU.prototype.addQuestionToxAPI = function (xAPIEvent) {
     var definition = xAPIEvent.getVerifiedStatementValue(['object', 'definition']);
     $.extend(definition, this.getxAPIDefinition());
   };
@@ -390,7 +390,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * Generate xAPI object definition used in xAPI statements.
    * @return {Object}
    */
-  GoalsPage.prototype.getxAPIDefinition = function () {
+  GoalsPageJGU.prototype.getxAPIDefinition = function () {
     var definition = {};
     var self = this;
     definition.description = {
@@ -400,7 +400,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
     definition.interactionType = 'fill-in';
     definition.correctResponsesPattern = [];
     definition.extensions = {
-      'https://h5p.org/x-api/h5p-machine-name': 'H5P.GoalsPage'
+      'https://h5p.org/x-api/h5p-machine-name': 'H5P.GoalsPageJGU'
     };
 
     return definition;
@@ -412,7 +412,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * @param {H5P.XAPIEvent} xAPIEvent
    *  The xAPI event we will add a response to
    */
-  GoalsPage.prototype.addResponseToxAPI = function (xAPIEvent) {
+  GoalsPageJGU.prototype.addResponseToxAPI = function (xAPIEvent) {
     xAPIEvent.data.statement.result = {};
     xAPIEvent.data.statement.result.response = this.getXAPIResponse();
   };
@@ -421,7 +421,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * Generate xAPI user response, used in xAPI statements.
    * @return {string} User answers separated by the "[,]" pattern
    */
-  GoalsPage.prototype.getXAPIResponse = function () {
+  GoalsPageJGU.prototype.getXAPIResponse = function () {
     return this.getGoals().map(function (goal) {
       return goal.text;
     }).join('[,]');
@@ -432,7 +432,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * @param {string} input Input string.
    * @return {string} Output string.
    */
-  GoalsPage.prototype.htmlDecode = function (input) {
+  GoalsPageJGU.prototype.htmlDecode = function (input) {
     const dparser = new DOMParser().parseFromString(input, 'text/html');
     const div = document.createElement('div');
     div.innerHTML = dparser.documentElement.textContent;
@@ -444,7 +444,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
    * Answer call to return the current state.
    * @return {object} Current state.
    */
-  GoalsPage.prototype.getCurrentState = function () {
+  GoalsPageJGU.prototype.getCurrentState = function () {
     const goals = this.goalList.map(function (instance) {
       return (typeof instance.getCurrentState === 'function') ?
         instance.getCurrentState() :
@@ -456,7 +456,7 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
     };
   };
 
-  GoalsPage.prototype.resetTask = function () {
+  GoalsPageJGU.prototype.resetTask = function () {
     const self = this;
 
     $(this.$goalsView).find('.created-goal-container').each(function () {
@@ -464,5 +464,5 @@ H5P.GoalsPage = (function ($, EventDispatcher) {
     });
   };
 
-  return GoalsPage;
+  return GoalsPageJGU;
 }(H5P.jQuery, H5P.EventDispatcher));
