@@ -45,6 +45,7 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
       title: this.getTitle(),
       a11yFriendlyTitle: this.getTitle(false),
       description: '',
+      predefinedGoals: [],
       defineGoalText: 'Create a new goal',
       definedGoalLabel: 'User defined goal',
       defineGoalPlaceholder: 'Write here...',
@@ -155,6 +156,10 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
 
     // Attach button click event listener
     self.initCreateGoalButton();
+
+    if (!this.previousState) {
+      self.addPredefinedGoals();
+    }
   };
 
   /**
@@ -167,6 +172,20 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
     H5P.DocumentationToolJGU.handleButtonClick(self.$createGoalButton, function () {
       self.addGoal().find('.created-goal').focus();
       self.trigger('resize');
+    });
+  };
+
+  /**
+   * Add predefined goals to the page.
+   */
+  GoalsPageJGU.prototype.addPredefinedGoals = function() {
+    const self = this;
+
+    self.params.predefinedGoals.forEach((goal) => {
+      self.addGoal({
+        value: self.htmlDecode(goal),
+        description: self.htmlDecode(self.params.definedGoalLabel)
+      });
     });
   };
 
@@ -462,6 +481,8 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
     $(this.$goalsView).find('.created-goal-container').each(function () {
       self.removeGoal($(this));
     });
+
+    self.addPredefinedGoals();
   };
 
   return GoalsPageJGU;

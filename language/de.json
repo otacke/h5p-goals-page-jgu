@@ -6,6 +6,14 @@
       "default": "Ziele einfügen, mit denen gearbeitet werden soll."
     },
     {
+      "label": "Vordefinierte Ziele",
+      "entity": "Ziel",
+      "description": "Optionales, vordefiniertes Ziel, das die Nutzenden verwenden oder löschen können.",
+      "field": {
+        "label": "Vordefiniertes Ziel"
+      }
+    },
+    {
       "label": "Definieren des Ziel-Linktextes",
       "description": "Text, der auf dem Button angezeigt wird, um ein neues Ziel zu erstellen.",
       "default": "Ein neues Ziel erstellen"

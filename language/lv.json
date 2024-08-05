@@ -1,14 +1,22 @@
 {
   "semantics": [
     {
-      "description": "Mērķu lapas apraksts.",
       "label": "Apraksts",
+      "description": "Mērķu lapas apraksts.",
       "default": "Ievietojiet mērķus, pie kuriem esat izvēlējies strādāt."
     },
     {
+      "label": "Predefined goals",
+      "entity": "goal",
+      "description": "Optional predefined goals that the user can choose to use or delete.",
+      "field": {
+        "label": "Predefined goal"
+      }
+    },
+    {
       "label": "Iestatiet mērķa saites tekstu",
-      "default": "Izveidot jaunu mērķi",
-      "description": "Teksts, kas tiks parādīts uz jauna mērķa izveides pogas."
+      "description": "Teksts, kas tiks parādīts uz jauna mērķa izveides pogas.",
+      "default": "Izveidot jaunu mērķi"
     },
     {
       "label": "Lietotāja definētā mērķa etiķete",
@@ -17,8 +25,8 @@
     },
     {
       "label": "Iestatiet mērķa vietturi",
-      "default": "Raksti šeit...",
-      "description": "Teksts, kas tiks parādīts kā vietturis, veidojot jaunu mērķi."
+      "description": "Teksts, kas tiks parādīts kā vietturis, veidojot jaunu mērķi.",
+      "default": "Raksti šeit..."
     },
     {
       "label": "Teksts, kas norāda, cik mērķi ir pievienoti",
@@ -26,8 +34,8 @@
       "description": "Šis teksts tiks atspoguļots pirms šobrīd izveidoto mērķu skaita, piemēram: 'Pievienotie mērķi: 5', kur 'Pievienotie mērķi:' ir šis teksts."
     },
     {
-      "default": "Precizēšana",
-      "label": "Teksts pogai \"Precizēt mērķi\""
+      "label": "Teksts pogai \"Precizēt mērķi\"",
+      "default": "Precizēšana"
     },
     {
       "label": "Teksts pogai \"Noņemt mērķi\"",

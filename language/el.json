@@ -1,9 +1,17 @@
-  {
+{
   "semantics": [
     {
       "label": "Περιγραφή",
       "description": "Περιγραφή της σελίδας με τους στόχους.",
       "default": "Εισάγετε τους στόχους με τους οποίους έχετε επιλέξει να ασχοληθείτε."
+    },
+    {
+      "label": "Predefined goals",
+      "entity": "goal",
+      "description": "Optional predefined goals that the user can choose to use or delete.",
+      "field": {
+        "label": "Predefined goal"
+      }
     },
     {
       "label": "Ετικέτα κουμπιού για νέο στόχο",

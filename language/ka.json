@@ -1,9 +1,17 @@
 {
   "semantics": [
     {
+      "label": "აღწერა",
       "description": "მიზნების გვერდის აღწერა.",
-      "default": "შეიყვანეთ მიზნები, რომლებიც აირჩიეთ სამუშაოდ.",
-      "label": "აღწერა"
+      "default": "შეიყვანეთ მიზნები, რომლებიც აირჩიეთ სამუშაოდ."
+    },
+    {
+      "label": "Predefined goals",
+      "entity": "goal",
+      "description": "Optional predefined goals that the user can choose to use or delete.",
+      "field": {
+        "label": "Predefined goal"
+      }
     },
     {
       "label": "განსაზღვრეთ მიზნის ბმულის ტექსტი",
