@@ -107,7 +107,8 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
       textualAnswer: this.getTextualAnswer(),
       text: this.text,
       placeholder: this.placeholder,
-      goalTypeDescription: this.goalTypeDescription
+      goalTypeDescription: this.goalTypeDescription,
+      weight: this.goalWeight
     };
   };
 
