@@ -21,10 +21,7 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
     this.text = goalText;
     this.placeholder = defineGoalPlaceholder;
     this.goalTypeDescription = goalTypeDescription;
-    this.goalWeight = goalWeight;
-
-    console.log(this);
-
+    this.goalWeight = goalWeight
   }
 
   /**
