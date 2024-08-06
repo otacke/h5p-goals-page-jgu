@@ -22,6 +22,9 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
     this.placeholder = defineGoalPlaceholder;
     this.goalTypeDescription = goalTypeDescription;
     this.goalWeight = goalWeight;
+
+    console.log(this);
+
   }
 
   /**
@@ -79,6 +82,30 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
   GoalInstance.prototype.getGoalPlaceholder = function () {
     return this.placeholder;
   };
+
+  /**
+   * Get goal weight.
+   * @returns {number} Goal weight
+   */
+  GoalInstance.prototype.getWeight = function () {
+    return this.goalWeight;
+  }
+
+  /**
+   * Set goal weight.
+   * @param {number} weight Goal weight
+   */
+  GoalInstance.prototype.setWeight = function (weight) {
+    if (typeof weight !== 'number') {
+      weight = parseInt(weight);
+    }
+
+    if (isNaN(weight)) {
+      weight = 100;
+    }
+
+    this.goalWeight = weight;
+  }
 
   /**
    * Set textual answer in goal instance

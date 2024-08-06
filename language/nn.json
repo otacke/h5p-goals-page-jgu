@@ -10,7 +10,6 @@
       "entity": "goal",
       "description": "Optional predefined goals that the user can choose to use or delete.",
       "field": {
-
         "label": "Predefined goal",
         "fields": [
           {
@@ -59,6 +58,18 @@
     {
       "label": "Fyll inn tilleggsinformasjon om utføring til brukaren",
       "description": "Her kan du fylla inn ekstra nyttig informasjon om korleis brukaren skal bruke denne sida."
+    },
+    {
+      "label": "Localization",
+      "fields": [
+        {
+          "label": "Weight",
+          "default": "Weight"
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Localize goal deletion confirmation",

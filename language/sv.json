@@ -10,7 +10,6 @@
       "entity": "goal",
       "description": "Optional predefined goals that the user can choose to use or delete.",
       "field": {
-
         "label": "Predefined goal",
         "fields": [
           {
@@ -59,6 +58,18 @@
     {
       "label": "Fyll i hjälpfull information",
       "description": "Här kan du fylla i hjälpfull information för användaren."
+    },
+    {
+      "label": "Localization",
+      "fields": [
+        {
+          "label": "Weight",
+          "default": "Weight"
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Lokalisera bekräftelse av borttagande av mål",

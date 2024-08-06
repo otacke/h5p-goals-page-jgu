@@ -10,7 +10,6 @@
       "entity": "goal",
       "description": "Optional predefined goals that the user can choose to use or delete.",
       "field": {
-
         "label": "Predefined goal",
         "fields": [
           {
@@ -59,6 +58,18 @@
     {
       "label": "Aizpildiet papildus palīdzības informāciju",
       "description": "Šeit varat ievadīt lietotājam noderīgu papildu informāciju."
+    },
+    {
+      "label": "Localization",
+      "fields": [
+        {
+          "label": "Weight",
+          "default": "Weight"
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Lokalizēt mērķa dzēšanas apstiprinājumu",

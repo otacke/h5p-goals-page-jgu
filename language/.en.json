@@ -60,6 +60,18 @@
       "description": "Here you can fill in additional helpful information for the user."
     },
     {
+      "label": "Localization",
+      "fields": [
+        {
+          "label": "Weight",
+          "default": "Weight"
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
+    },
+    {
       "label": "Localize goal deletion confirmation",
       "fields": [
         {

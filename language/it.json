@@ -10,7 +10,6 @@
       "entity": "goal",
       "description": "Optional predefined goals that the user can choose to use or delete.",
       "field": {
-
         "label": "Predefined goal",
         "fields": [
           {
@@ -59,6 +58,18 @@
     {
       "label": "Aggiungi ulteriori informazioni di aiuto",
       "description": "Qui puoi aggiungere ulteriori informazioni di aiuto per l'apprendente"
+    },
+    {
+      "label": "Localization",
+      "fields": [
+        {
+          "label": "Weight",
+          "default": "Weight"
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Localizza la conferma della cancellazione dell'obiettivo",

@@ -132,6 +132,27 @@
     ]
   },
   {
+    "name": "l10n",
+    "type": "group",
+    "label": "Localization",
+    "common": "true",
+    "importance": "low",
+    "fields": [
+      {
+        "name": "weight",
+        "type": "text",
+        "label": "Weight",
+        "default": "Weight"
+      },
+      {
+        "name": "dummy",
+        "type": "text",
+        "label": "Dummy",
+        "widget": "none"
+      }
+    ]
+  },
+  {
     "name": "goalDeletionConfirmation",
     "type": "group",
     "common": true,

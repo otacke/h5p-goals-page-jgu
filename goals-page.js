@@ -58,6 +58,9 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
         message: 'Are you sure you want to delete this goal?',
         cancelLabel: 'Cancel',
         confirmLabel: 'Confirm'
+      },
+      l10n: {
+        weight: 'Weight'
       }
     }, params);
 
@@ -206,6 +209,7 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
     var goalPlaceholder = this.htmlDecode(self.params.defineGoalPlaceholder);
     var goalTypeDescription = this.htmlDecode(self.params.definedGoalLabel);
     let goalText = undefined;
+
     const goalWeight = competenceAim?.weight ?? 100;
 
     // Use predefined goal
@@ -299,6 +303,31 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
       'title': goalInstance.getGoalTypeDescription(),
       'id': id
     }).appendTo($goalContainer);
+
+    const weightInputWrapper = document.createElement('div');
+    weightInputWrapper.classList.add('goal-weight-wrapper');
+
+    const weightInputUuid = H5P.createUUID();
+    const weightInputLabel = document.createElement('label');
+    weightInputLabel.classList.add('goal-weight-label');
+    weightInputLabel.setAttribute('for', weightInputUuid);
+    weightInputLabel.innerHTML = this.params.l10n.weight;
+    weightInputWrapper.append(weightInputLabel);
+
+    const weightInput = document.createElement('input');
+    weightInput.classList.add('goal-weight');
+    weightInput.setAttribute('id', weightInputUuid);
+    weightInput.setAttribute('type', 'number');
+    weightInput.setAttribute('pattern', '\d*');
+    weightInput.setAttribute('min', '0');
+    weightInput.setAttribute('value', goalInstance.getWeight());
+    weightInputWrapper.append(weightInput);
+
+    $goalContainer.append(weightInputWrapper);
+
+    weightInput.addEventListener('input', () => {
+      goalInstance.setWeight(weightInput.value);
+    });
 
     // Need to tell world I might need to resize
     $goalInputArea.on('blur keyup paste input', function () {

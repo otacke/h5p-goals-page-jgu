@@ -39,6 +39,21 @@
   padding-top: 0.25em;
 }
 
+.h5p-goals-page .goals-view .goal-weight-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.h5p-goals-page .goals-view .goal-weight-wrapper .goal-weight-label {
+  margin-right: 0.5rem;
+}
+
+.h5p-goals-page .goals-view .goal-weight-wrapper input.goal-weight {
+  width: max(5ch, 3rem);
+}
+
 /* ------------------- Goal container truncation ------------------------- */
 
 .h5p-goals-page .created-goal-container .created-goal {

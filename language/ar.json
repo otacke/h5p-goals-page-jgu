@@ -60,6 +60,18 @@
       "description": "هنا يمكنك ملء معلومات مفيدة إضافية للمستخدم."
     },
     {
+      "label": "Localization",
+      "fields": [
+        {
+          "label": "Weight",
+          "default": "Weight"
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
+    },
+    {
       "label": "تحديد موقع تأكيد حذف الهدف",
       "fields": [
         {

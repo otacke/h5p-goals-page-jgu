@@ -60,6 +60,18 @@
       "description": "Hier können zusätzliche hilfreiche Informationen für den Benutzer eingegeben werden."
     },
     {
+      "label": "Bedienoberfläche",
+      "fields": [
+        {
+          "label": "Gewichtung",
+          "default": "Gewichtung"
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
+    },
+    {
       "label": "Übersetzung des Bestätigungsdialogs für das Löschen von Zielen",
       "fields": [
         {
