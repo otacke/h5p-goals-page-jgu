@@ -121,6 +121,22 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
   };
 
   /**
+   * Set feedback in goal instance.
+   * @param {string} feedback Feedback.
+   */
+  GoalInstance.prototype.setFeedback = function (feedback) {
+    this.feedback = feedback;
+  }
+
+  /**
+   * Get feedback from goal instance.
+   * @returns {string} feedback Feedback.
+   */
+  GoalInstance.prototype.getFeedback = function () {
+    return this.feedback ?? '';
+  };
+
+  /**
    * Answer call to return the current state.
    *
    * @return {object} Current state.
@@ -129,6 +145,7 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
     return {
       answer: this.answer,
       textualAnswer: this.getTextualAnswer(),
+      feedback: this.getFeedback(),
       text: this.text,
       placeholder: this.placeholder,
       goalTypeDescription: this.goalTypeDescription,
