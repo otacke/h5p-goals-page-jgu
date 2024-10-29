@@ -121,19 +121,19 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
   };
 
   /**
-   * Set feedback in goal instance.
-   * @param {string} feedback Feedback.
+   * Set comment in goal instance.
+   * @param {string} comment Comment.
    */
-  GoalInstance.prototype.setFeedback = function (feedback) {
-    this.feedback = feedback;
+  GoalInstance.prototype.setComment = function (comment) {
+    this.comment = comment;
   }
 
   /**
-   * Get feedback from goal instance.
-   * @returns {string} feedback Feedback.
+   * Get comment from goal instance.
+   * @returns {string} comment Comment.
    */
-  GoalInstance.prototype.getFeedback = function () {
-    return this.feedback ?? '';
+  GoalInstance.prototype.getComment = function () {
+    return this.comment ?? '';
   };
 
   /**
@@ -145,7 +145,7 @@ H5P.GoalsPageJGU.GoalInstance = (function () {
     return {
       answer: this.answer,
       textualAnswer: this.getTextualAnswer(),
-      feedback: this.getFeedback(),
+      comment: this.getComment(),
       text: this.text,
       placeholder: this.placeholder,
       goalTypeDescription: this.goalTypeDescription,

@@ -155,7 +155,7 @@ H5P.GoalsPageJGU = (function ($, EventDispatcher) {
         });
         self.goalList[index].goalAnswer(goal.answer);
         self.goalList[index].setTextualAnswer(goal.textualAnswer);
-        self.goalList[index].setFeedback(goal.feedback);
+        self.goalList[index].setComment(goal.comment);
       });
     }
 
